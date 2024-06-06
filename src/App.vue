@@ -30,6 +30,7 @@
             })
             .then((response) => {
               this.store.movies = response.data;
+              console.log(this.store.movies);
             });
 
           axios

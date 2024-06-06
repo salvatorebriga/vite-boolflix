@@ -12,7 +12,7 @@
 <template>
   <div class="container">
     <h2>Film</h2>
-    <div class="row">
+    <div class="row dragscroll">
       <div class="col" v-for="(movie, index) in this.store.movies.results">
         <AppCard
           :index="index"
@@ -20,12 +20,13 @@
           :originalTitle="movie.original_title"
           :originalLanguage="movie.original_language"
           :vote="movie.vote_average"
+          :poster="movie.poster_path"
         />
       </div>
     </div>
 
     <h2>Serie TV</h2>
-    <div class="row">
+    <div class="row dragscroll">
       <div class="col" v-for="(serie, index) in this.store.series.results">
         <AppCard
           :index="index"
@@ -33,6 +34,7 @@
           :originalTitle="serie.original_name"
           :originalLanguage="serie.original_language"
           :vote="serie.vote_average"
+          :poster="serie.poster_path"
         />
       </div>
     </div>
@@ -44,11 +46,12 @@
     max-width: 1800px;
     margin: 0 auto;
     overflow-x: hidden;
-    padding-top: 100px;
 
     .row {
       display: flex;
-      overflow-x: scroll;
+      overflow-x: hidden;
+      margin-top: 25px;
+      margin-bottom: 25px;
 
       .col {
         margin: 5px;
