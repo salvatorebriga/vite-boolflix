@@ -11,6 +11,8 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
     "axios": "^1.7.2",
+    "flag-icons": "^7.2.3",
+    "language-icons": "^0.3.0",
     "vue": "^3.4.21"
   },
   "devDependencies": {

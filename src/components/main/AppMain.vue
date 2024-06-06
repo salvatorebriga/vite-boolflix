@@ -30,6 +30,7 @@
     max-width: 1800px;
     margin: 0 auto;
     overflow-x: hidden;
+    padding-top: 100px;
 
     .row {
       display: flex;

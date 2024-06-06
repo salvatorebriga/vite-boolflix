@@ -8,7 +8,10 @@
   <div class="card">
     <p>{{ this.title }}</p>
     <p>{{ this.originalTitle }}</p>
-    <p>{{ this.originalLanguage }}</p>
+    <img
+      :src="`/node_modules/language-icons/icons/${originalLanguage}.svg`"
+      :alt="originalLanguage"
+    />
     <p>{{ this.vote }}</p>
   </div>
 </template>
@@ -18,5 +21,10 @@
     width: 250px;
     height: 250px;
     background-color: wheat;
+
+    img {
+      width: 20px;
+      height: 15px;
+    }
   }
 </style>
