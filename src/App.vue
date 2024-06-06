@@ -25,12 +25,20 @@
         };
         if (this.store.apiInfo.endpoints.query) {
           axios
-            .get(this.store.apiInfo.url, {
+            .get(this.store.apiInfo.url + this.store.apiInfo.movie, {
               params,
             })
             .then((response) => {
-              this.store.movie = response.data;
-              console.log(this.store.movie);
+              this.store.movies = response.data;
+            });
+
+          axios
+            .get(this.store.apiInfo.url + this.store.apiInfo.tv, {
+              params,
+            })
+            .then((response) => {
+              this.store.series = response.data;
+              console.log(this.store.series);
             });
         } else {
           console.log("Query vuota");

@@ -11,14 +11,28 @@
 
 <template>
   <div class="container">
+    <h2>Film</h2>
     <div class="row">
-      <div class="col" v-for="(movie, index) in this.store.movie.results">
+      <div class="col" v-for="(movie, index) in this.store.movies.results">
         <AppCard
           :index="index"
           :title="movie.title"
-          :originalTitle="movie.originalTitle"
+          :originalTitle="movie.original_title"
           :originalLanguage="movie.original_language"
           :vote="movie.vote_average"
+        />
+      </div>
+    </div>
+
+    <h2>Serie TV</h2>
+    <div class="row">
+      <div class="col" v-for="(serie, index) in this.store.series.results">
+        <AppCard
+          :index="index"
+          :title="serie.name"
+          :originalTitle="serie.original_name"
+          :originalLanguage="serie.original_language"
+          :vote="serie.vote_average"
         />
       </div>
     </div>
