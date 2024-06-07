@@ -11,9 +11,42 @@
 
 <template>
   <div class="container">
-    <h2>Film</h2>
+    <div v-show="this.store.apiInfo.endpoints.query !== ''">
+      <h2>Film</h2>
+      <div class="row dragscroll">
+        <div class="col" v-for="(movie, index) in this.store.movies.results">
+          <AppCard
+            :index="index"
+            :title="movie.title"
+            :originalTitle="movie.original_title"
+            :originalLanguage="movie.original_language"
+            :vote="movie.vote_average"
+            :poster="movie.poster_path"
+          />
+        </div>
+      </div>
+
+      <h2>Serie TV</h2>
+      <div class="row dragscroll">
+        <div class="col" v-for="(serie, index) in this.store.series.results">
+          <AppCard
+            :index="index"
+            :title="serie.name"
+            :originalTitle="serie.original_name"
+            :originalLanguage="serie.original_language"
+            :vote="serie.vote_average"
+            :poster="serie.poster_path"
+          />
+        </div>
+      </div>
+    </div>
+
+    <h2>Film più popolari</h2>
     <div class="row dragscroll">
-      <div class="col" v-for="(movie, index) in this.store.movies.results">
+      <div
+        class="col"
+        v-for="(movie, index) in this.store.popularMovie.results"
+      >
         <AppCard
           :index="index"
           :title="movie.title"
@@ -25,9 +58,12 @@
       </div>
     </div>
 
-    <h2>Serie TV</h2>
+    <h2>Serie TV del momento</h2>
     <div class="row dragscroll">
-      <div class="col" v-for="(serie, index) in this.store.series.results">
+      <div
+        class="col"
+        v-for="(serie, index) in this.store.popularSeries.results"
+      >
         <AppCard
           :index="index"
           :title="serie.name"
