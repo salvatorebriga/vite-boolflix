@@ -14,6 +14,10 @@
       AppMain,
     },
 
+    watch: {
+      "store.apiInfo.endpoints.query": "search",
+    },
+
     methods: {
       search() {
         const params = {
@@ -46,10 +50,6 @@
           console.log("Query vuota");
         }
       },
-
-      searchButton() {
-        this.search();
-      },
     },
 
     created() {
@@ -59,7 +59,7 @@
 </script>
 
 <template>
-  <AppHeader @searchButton="searchButton" />
+  <AppHeader />
   <AppMain />
 </template>
 

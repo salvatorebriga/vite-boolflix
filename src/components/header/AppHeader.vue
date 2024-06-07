@@ -1,7 +1,6 @@
 <script>
   import { store } from "../../store.js";
   export default {
-    emits: ["searchButton"],
     data() {
       return {
         store,
@@ -21,9 +20,6 @@
         placeholder="Search Film or TV series"
         v-model="this.store.apiInfo.endpoints.query"
       />
-      <button class="search" value="Search" @click="$emit('searchButton')">
-        Search
-      </button>
     </div>
   </header>
 </template>
