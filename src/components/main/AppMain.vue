@@ -14,7 +14,7 @@
     <div v-show="this.store.apiInfo.endpoints.query !== ''">
       <h2>Film</h2>
       <div class="row dragscroll">
-        <div class="col" v-for="(movie, index) in this.store.movies.results">
+        <div class="col" v-for="(movie, index) in this.store.movies.list">
           <AppCard
             :index="index"
             :title="movie.title"
@@ -22,13 +22,14 @@
             :originalLanguage="movie.original_language"
             :vote="movie.vote_average"
             :poster="movie.poster_path"
+            :actors="this.store.movies.actors[index]"
           />
         </div>
       </div>
 
       <h2>Serie TV</h2>
       <div class="row dragscroll">
-        <div class="col" v-for="(serie, index) in this.store.series.results">
+        <div class="col" v-for="(serie, index) in this.store.series.list">
           <AppCard
             :index="index"
             :title="serie.name"
@@ -36,6 +37,7 @@
             :originalLanguage="serie.original_language"
             :vote="serie.vote_average"
             :poster="serie.poster_path"
+            :actors="this.store.series.actors[index]"
           />
         </div>
       </div>
@@ -43,10 +45,7 @@
 
     <h2>Film più popolari</h2>
     <div class="row dragscroll">
-      <div
-        class="col"
-        v-for="(movie, index) in this.store.popularMovie.results"
-      >
+      <div class="col" v-for="(movie, index) in this.store.popularMovie.list">
         <AppCard
           :index="index"
           :title="movie.title"
@@ -54,16 +53,14 @@
           :originalLanguage="movie.original_language"
           :vote="movie.vote_average"
           :poster="movie.poster_path"
+          :actors="this.store.popularMovie.actors[index]"
         />
       </div>
     </div>
 
     <h2>Serie TV del momento</h2>
     <div class="row dragscroll">
-      <div
-        class="col"
-        v-for="(serie, index) in this.store.popularSeries.results"
-      >
+      <div class="col" v-for="(serie, index) in this.store.popularSeries.list">
         <AppCard
           :index="index"
           :title="serie.name"
@@ -71,6 +68,7 @@
           :originalLanguage="serie.original_language"
           :vote="serie.vote_average"
           :poster="serie.poster_path"
+          :actors="this.store.popularSeries.actors[index]"
         />
       </div>
     </div>

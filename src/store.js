@@ -1,10 +1,24 @@
 import { reactive } from "vue";
 
 export const store = reactive({
-  movies: [],
-  series: [],
-  popularMovie: [],
-  popularSeries: [],
+  movies: {
+    list: [],
+    actors: [],
+  },
+
+  series: {
+    list: [],
+    actors: [],
+  },
+
+  popularMovie: {
+    list: [],
+    actors: [],
+  },
+  popularSeries: {
+    list: [],
+    actors: [],
+  },
 
   apiInfo: {
     url: "https://api.themoviedb.org/3",

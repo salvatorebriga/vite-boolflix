@@ -7,6 +7,7 @@
       "originalLanguage",
       "vote",
       "poster",
+      "actors",
     ],
   };
 </script>
@@ -41,6 +42,12 @@
           >★</span
         >
       </div>
+
+      <p>Cast:</p>
+
+      <span v-for="cast in actors">
+        {{ cast.name }}
+      </span>
     </div>
   </div>
 </template>
@@ -76,19 +83,12 @@
       display: none;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.8);
       padding-left: 50px;
       padding-right: 50px;
 
-      p,
-      .lang {
-        margin-top: 5px;
-      }
       .lang {
         width: 25px;
-      }
-      .stars {
-        margin-top: 5px;
       }
       .filled {
         color: gold;
