@@ -19,6 +19,39 @@
     },
 
     methods: {
+      standardSearch() {
+        axios
+          .get(
+            this.store.apiInfo.url +
+              (this.store.apiInfo.movie + this.store.apiInfo.popular),
+            {
+              params: {
+                api_key: this.store.apiInfo.endpoints.api_key,
+              },
+            }
+          )
+          .then((response) => {
+            console.log(response);
+            this.store.popularMovie = response.data;
+            console.log(this.store.popularMovie);
+          });
+
+        axios
+          .get(
+            this.store.apiInfo.url +
+              (this.store.apiInfo.tv + this.store.apiInfo.popular),
+            {
+              params: {
+                api_key: this.store.apiInfo.endpoints.api_key,
+              },
+            }
+          )
+          .then((response) => {
+            console.log(response);
+            this.store.popularSeries = response.data;
+            console.log(this.store.popularSeries);
+          });
+      },
       search() {
         const params = {
           api_key: this.store.apiInfo.endpoints.api_key,
@@ -57,43 +90,12 @@
         } else {
           console.log("Query vuota");
         }
-
-        axios
-          .get(
-            this.store.apiInfo.url +
-              (this.store.apiInfo.movie + this.store.apiInfo.popular),
-            {
-              params: {
-                api_key: this.store.apiInfo.endpoints.api_key,
-              },
-            }
-          )
-          .then((response) => {
-            console.log(response);
-            this.store.popularMovie = response.data;
-            console.log(this.store.popularMovie);
-          });
-
-        axios
-          .get(
-            this.store.apiInfo.url +
-              (this.store.apiInfo.tv + this.store.apiInfo.popular),
-            {
-              params: {
-                api_key: this.store.apiInfo.endpoints.api_key,
-              },
-            }
-          )
-          .then((response) => {
-            console.log(response);
-            this.store.popularSeries = response.data;
-            console.log(this.store.popularSeries);
-          });
       },
     },
 
     created() {
       this.search();
+      this.standardSearch();
     },
   };
 </script>
