@@ -38,7 +38,6 @@
       align-items: center;
       color: red;
       font-size: 30px;
-      font-style: italic;
     }
 
     .colR {
