@@ -1,5 +1,5 @@
 <script>
-  import AppNav from "./components/nav/AppNav.vue";
+  import AppHeader from "./components/header/AppHeader.vue";
   import AppMain from "./components/main/AppMain.vue";
   import { store } from "./store.js";
   import axios from "axios";
@@ -10,7 +10,7 @@
       };
     },
     components: {
-      AppNav,
+      AppHeader,
       AppMain,
     },
 
@@ -23,6 +23,7 @@
           page: this.store.apiInfo.endpoints.page,
           query: this.store.apiInfo.endpoints.query,
         };
+
         if (this.store.apiInfo.endpoints.query) {
           axios
             .get(this.store.apiInfo.url + this.store.apiInfo.movie, {
@@ -49,11 +50,6 @@
       searchButton() {
         this.search();
       },
-
-      resetButton() {
-        this.store.apiInfo.endpoints.query = "";
-        this.search();
-      },
     },
 
     created() {
@@ -63,7 +59,7 @@
 </script>
 
 <template>
-  <AppNav @searchButton="searchButton" @resetButton="resetButton" />
+  <AppHeader @searchButton="searchButton" />
   <AppMain />
 </template>
 
